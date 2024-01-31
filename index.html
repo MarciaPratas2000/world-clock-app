@@ -3,18 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link href="src/css/style.css" rel="stylesheet" type="text/css" />
 
     <title>World Clock App - Márcia Pratas</title>
   </head>
   <body>
-    <div>
+    <div class="container">
       <header>
-Hello!
-      </header>
-      <main>
-      </main>
+   <h1> 🌎 World Clocks 🌎</h1>
+   <select name="cities" id="cities">
+   <option value="">Select a City..</option>
+   <option value="toronto">Toronto 🇨🇦</option>
+   <option value="new-delhi">New Delhi 🇮🇳</option>
+   <option value="sydney">Sydney 🇦🇺</option>
+   <option value="rome">Rome 🇮🇹</option>
+  </select>
+</header>
+<main>
+  <div class="city-details">
+    <h2 class="city">Toronto 🇨🇦</h2>
+    <div class="date">August 15th 2022</div>
+    <div class="time">1:48:15 AM</div>
+  </div>
+
+  <div class="city-details">
+  <h2 class="city">New Delhi 🇮🇳</h2>
+  <div class="date">August 15th 2022</div>
+  <div class="time">1:48:15 AM</div>
+</div>
+</main>
       <footer>
         <p>
           This project was coded by
@@ -24,6 +41,7 @@ Hello!
         </p>
       </footer>
     </div>
+  </div>
     <script src="src/javascript/index.js "></script>
   </body>
 </html>

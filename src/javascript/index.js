@@ -1,1 +1,0 @@
-alert("World Clock APP");
