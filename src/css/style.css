@@ -1,6 +1,82 @@
-body{
-    text-align: center;
-    background-color: beige;
+body {
+    font-family: sans-serif;
+    background: radial-gradient(328px at 2.9% 15%, rgb(191, 224, 251) 0%, rgb(232, 233, 251) 25.8%, rgb(252, 239, 250) 50.8%, rgb(234, 251, 251) 77.6%, rgb(240, 251, 244) 100.7%);
+}
+h1{font-weight:bold ;
+font-size: 38px;}
+
+h1, h2 {
+    color: #31597f;
 }
 
-header{color: brown;}
+h2 {
+    margin: 0 0 5px;
+    font-size: 30px;
+}
+
+header {
+    text-align: center;
+    padding: 0 0 15px;
+    border-bottom: 1px dashed rgba(188, 188, 230, 0.4);
+}
+
+select {
+    width: 95%;
+    margin: 0;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: medium;
+    border-style: double;
+}
+
+main {
+    padding: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 0 0 20px;
+    color: #0a1621;
+}
+
+a{color: #36638c;}
+
+
+.container {
+    background: white;
+    max-width: 600px;
+    margin: 60px auto 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
+}
+
+.city-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    transition: background-color 0.3s ease; /* Added transition property */
+    border-bottom: 1px dashed rgba(188, 188, 230, 0.2);
+}
+
+.city-details:hover {
+    background: rgba(249, 234, 245, 0.3);
+    border-radius: 8px;
+    width: 100%;
+}
+
+.time {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.date {
+    opacity: 0.7;
+    margin-bottom: 5px;
+}
+
+.time small {
+    font-size: 24px;
+    vertical-align: middle;
+    line-height: 48px;
+}
