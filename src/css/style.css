@@ -1,7 +1,8 @@
 body {
-    font-family: sans-serif;
+    font-family: 'DM Sans', sans-serif;
     background: radial-gradient(328px at 2.9% 15%, rgb(191, 224, 251) 0%, rgb(232, 233, 251) 25.8%, rgb(252, 239, 250) 50.8%, rgb(234, 251, 251) 77.6%, rgb(240, 251, 244) 100.7%);
 }
+
 h1{font-weight:bold ;
 font-size: 38px;}
 
@@ -37,13 +38,15 @@ footer {
     text-align: center;
     padding: 0 0 20px;
     color: #0a1621;
+    font-family: monospace;
+    font-size:16px;
 }
 
 a{color: #36638c;}
 
 
 .container {
-    background: white;
+    background: rgba(255, 255, 255, 0.6);
     max-width: 600px;
     margin: 60px auto 40px auto;
     padding: 20px;
@@ -60,14 +63,15 @@ a{color: #36638c;}
 }
 
 .city-details:hover {
-    background: rgba(249, 234, 245, 0.3);
+    background: rgba(239, 238, 242, 0.3);
     border-radius: 8px;
     width: 100%;
 }
 
 .time {
-    font-size: 48px;
-    font-weight: bold;
+    font-size: 45px;
+    font-weight: 600;
+    color:rgba(0, 0, 0, 0.7);
 }
 
 .date {
