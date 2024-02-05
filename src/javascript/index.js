@@ -1,17 +1,12 @@
 // Function to update the time for a specific city element
 function updateCityTime(cityElementID) {
-    // Get the city element by ID
     let cityElement = document.getElementById(cityElementID);
     if (cityElement) {
-        // Get the value attribute of the city element
-        let cityElementValue = cityElement.querySelector(".city").getAttribute("value");
-
-        // Get the current time in the specified time zone
-        let now = moment().tz(cityElementValue);
-        let timeString = now.format("h:mm:ss A");
-        let dateString = now.format("MMMM Do YYYY");
+        let cityTimeZone = cityElement.querySelector(".city").getAttribute("value");
+        let currentTime = moment().tz(cityTimeZone);
+        let timeString = currentTime.format("h:mm:ss A");
+        let dateString = currentTime.format("MMMM Do YYYY");
         
-        // Update the time and date in the city element
         cityElement.querySelector(".time").textContent = timeString;
         cityElement.querySelector(".date").textContent = dateString;
     } else {
@@ -19,16 +14,60 @@ function updateCityTime(cityElementID) {
     }
 }
 
-// Initial Timezone update Ofor specific cities
+// Initial time zone update for specific cities
 setInterval(function() {
-    updateCityTime('Asia/Manila');
+    updateCityTime('asia-manila');
 }, 1000);
 
 setInterval(function() {
-    updateCityTime('Europe/Stockholm');
+    updateCityTime('europe-stockholm');
 }, 1000);
 
 setInterval(function() {
-    updateCityTime('Europe/Rome');
+    updateCityTime('europe-rome');
 }, 1000);
+
+// Function to create HTML content for the selected city
+function createSelectedCityHTML(timezone) {
+    let cityName = timezone.replace("_", "").split("/")[1];
+    const cityHTML = `
+        <div class="city-details" id="${timezone}">
+            <div>
+                <h2 class="city" value="${timezone}">${cityName}</h2>
+                <span class="date"></span>
+            </div>
+            <div class="time"><small></small></div>
+        </div>
+        <a class="return" href="">All Cities</a>
+    `;
+    const mainElement = document.querySelector("main");
+    mainElement.innerHTML = cityHTML;
+    updateCityTime(timezone);
+    console.log(mainElement);
+}
+
+// Function to set the guessed time zone as the current location
+function setCurrentTimezone() {
+    let guessedTimezone = moment.tz.guess();
+    let myLocationElement = document.getElementById("current-location");
+    myLocationElement.value = guessedTimezone;
+    myLocationElement.innerHTML = guessedTimezone.replace("_", " ").split("/")[1];
+}
+
+// Function to handle the change event of the cities select element
+function handleCityChange(event) {
+    if (event.target.value.length > 0) {
+        setCurrentTimezone();
+        console.log(event.target.value);
+        createSelectedCityHTML(event.target.value);
+        // Update the time for the selected city every second
+        setInterval(function() {
+            updateCityTime(event.target.value);
+        }, 1000);
+    }
+}
+
+// Event listener for the change event of the cities select element
+let citiesSelectElement = document.querySelector("#cities");
+citiesSelectElement.addEventListener("change", handleCityChange);
 
