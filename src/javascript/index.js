@@ -6,7 +6,7 @@ function formatCityTime(cityElementID) {
         let cityElement = document.getElementById(cityElementID);
         let cityTimeZone = cityElement.querySelector(".city").getAttribute("value");
         let currentTime = moment().tz(cityTimeZone);
-        let timeString = currentTime.format("hh:mm:ss A");
+        let timeString = currentTime.format("h:mm:ss A");
         let dateString = currentTime.format("MMMM Do YYYY");
 
         cityElement.querySelector(".time").textContent = timeString;
