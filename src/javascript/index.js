@@ -2,7 +2,6 @@ let intervalId; // Variable to store the interval ID
 
 // Function to update the time for a specific city element
 function formatCityTime(cityElementID) {
-    console.log(cityElementID);
     if (cityElementID != null) {
         let cityElement = document.getElementById(cityElementID);
         let cityTimeZone = cityElement.querySelector(".city").getAttribute("value");
