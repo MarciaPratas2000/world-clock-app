@@ -1,34 +1,34 @@
+let intervalId; // Variable to store the interval ID
+
 // Function to update the time for a specific city element
-function updateCityTime(cityElementID) {
-    let cityElement = document.getElementById(cityElementID);
-    if (cityElement) {
+function formatCityTime(cityElementID) {
+    console.log(cityElementID);
+    if (cityElementID != null) {
+        let cityElement = document.getElementById(cityElementID);
         let cityTimeZone = cityElement.querySelector(".city").getAttribute("value");
         let currentTime = moment().tz(cityTimeZone);
-        let timeString = currentTime.format("h:mm:ss A");
+        let timeString = currentTime.format("hh:mm:ss A");
         let dateString = currentTime.format("MMMM Do YYYY");
-        
+
         cityElement.querySelector(".time").textContent = timeString;
         cityElement.querySelector(".date").textContent = dateString;
-    } else {
-        console.error(`City element with ID '${cityElementID}' not found.`);
     }
 }
 
+function updateHomepage() {
+    formatCityTime('asia-manila');
+    formatCityTime('europe-stockholm');
+    formatCityTime('europe-rome');
+}
+
 // Initial time zone update for specific cities
-setInterval(function() {
-    updateCityTime('asia-manila');
-}, 1000);
-
-setInterval(function() {
-    updateCityTime('europe-stockholm');
-}, 1000);
-
-setInterval(function() {
-    updateCityTime('europe-rome');
-}, 1000);
+intervalId = setInterval(updateHomepage, 1000);
 
 // Function to create HTML content for the selected city
-function createSelectedCityHTML(timezone) {
+function createSelectedCity(timezone) {
+    // Clear the previous interval
+    clearInterval(intervalId);
+
     let cityName = timezone.replace("_", "").split("/")[1];
     const cityHTML = `
         <div class="city-details" id="${timezone}">
@@ -42,8 +42,10 @@ function createSelectedCityHTML(timezone) {
     `;
     const mainElement = document.querySelector("main");
     mainElement.innerHTML = cityHTML;
-    updateCityTime(timezone);
-    console.log(mainElement);
+    formatCityTime(timezone);
+    intervalId = setInterval(function () {
+        formatCityTime(timezone);
+    }, 1000);
 }
 
 // Function to set the guessed time zone as the current location
@@ -57,13 +59,10 @@ function setCurrentTimezone() {
 // Function to handle the change event of the cities select element
 function handleCityChange(event) {
     if (event.target.value.length > 0) {
-        setCurrentTimezone();
-        console.log(event.target.value);
-        createSelectedCityHTML(event.target.value);
-        // Update the time for the selected city every second
-        setInterval(function() {
-            updateCityTime(event.target.value);
-        }, 1000);
+        if (event.target.value === "current-location") {
+            setCurrentTimezone();
+        }
+        createSelectedCity(event.target.value);
     }
 }
 
@@ -71,3 +70,16 @@ function handleCityChange(event) {
 let citiesSelectElement = document.querySelector("#cities");
 citiesSelectElement.addEventListener("change", handleCityChange);
 
+// Function to undo the selection and restore the original HTML content
+function undoSelection() {
+    // Clear the interval before restoring the original HTML content
+    clearInterval(intervalId);
+
+    let originalHTML = ""; // Original HTML content can be stored here if needed
+    const mainElement = document.querySelector("main");
+    mainElement.innerHTML = originalHTML;
+}
+
+// Event listener for the "All Cities" link to undo the selection
+let allCitiesLink = document.querySelector(".return");
+allCitiesLink.addEventListener("click", undoSelection);

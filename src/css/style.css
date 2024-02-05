@@ -106,3 +106,11 @@ a{color: #36638c;}
     background-color: #266799; /* Darker color on hover */
     transform: scale(1.05); /* Slight scaling effect on hover */
 }
+
+.invisible{
+    display: none;
+}
+
+.invisible:hover{
+    display: none;
+}
