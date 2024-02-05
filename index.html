@@ -6,9 +6,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-    
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.44/moment-timezone-with-data-1970-2030.min.js"></script>
+
 <link href="src/css/style.css" rel="stylesheet" type="text/css" />
-    
 
     <title>World Clock App - Márcia Pratas</title>
   </head>
@@ -17,40 +19,37 @@
       <header>
    <h1> 🌎 World Clocks 🌎</h1>
    <select name="cities" id="cities">
-   <option value="">Select a City..</option>
-   <option value="toronto">Toronto 🇨🇦</option>
-   <option value="new-delhi">New Delhi 🇮🇳</option>
-   <option value="sydney">Sydney 🇦🇺</option>
-   <option value="rome">Rome 🇮🇹</option>
+   <option value="" id="">Select a City..</option>
+   <option value="current-location" id="current-location" >Your current location</option>
+   <option value="Europe/Budapest" id="Budapest"> Budapest 🇭🇺 </option>
+   <option value="Africa/Nairobi" id="Nairobi" > Nairobi 🇰🇪 </option>
+   <option value="Australia/Sydney" id="Sydney" >Sydney 🇦🇺</option>
   </select>
 </header>
 <main>
-  <div class="city-details">
+  <div class="city-details" id="Asia/Manila">
     <div>
-    <h2 class="city">Toronto 🇨🇦</h2>
-    <span class="date">August 15th 2022</span>
-  </div>
-  <div class="time">1:48:15 <small>AM</small></div>
-</div>
-
-  <div class="city-details">
-    <div>
-    <h2 class="city">New Delhi 🇮🇳</h2>
-    <span class="date">August 15th 2022</span>
-  </div>
-  <div class="time">1:48:15 <small>AM</small></div>
-</div>
-
-  <div class="city-details">
-    <div>
-    <h2 class="city">Sydney 🇦🇺</h2>
+    <h2 class="city" value="Asia/Manila" >Manila 🇵🇭</h2>
     <span class="date">August 15th 2022</span>
   </div>
     <div class="time">1:48:15 <small>AM</small></div>
   </div>
 
+  <div class="city-details" id="Europe/Rome">
+    <div>
+    <h2 class="city" value="Europe/Rome" >Rome 🇮🇹</h2>
+    <span class="date">August 15th 2022</span>
+    </div>
+  <div class="time">1:48:15 <small>AM</small></div>
+</div>
 
-
+  <div class="city-details" id="Europe/Stockholm">
+    <div>
+    <h2 class="city" value="Europe/Stockholm" >Stockholm 🇸🇪 </h2>
+    <span class="date">August 15th 2022</span>
+  </div>
+  <div class="time">1:48:15 <small>AM</small></div>
+</div>
 </div>
 </main>
     </div>

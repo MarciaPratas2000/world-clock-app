@@ -28,6 +28,8 @@ select {
     border-radius: 8px;
     font-size: medium;
     border-style: double;
+    background: rgba(255, 255, 255, 0.5);
+
 }
 
 main {
@@ -46,7 +48,7 @@ a{color: #36638c;}
 
 
 .container {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.5);
     max-width: 600px;
     margin: 60px auto 40px auto;
     padding: 20px;
@@ -83,4 +85,24 @@ a{color: #36638c;}
     font-size: 24px;
     vertical-align: middle;
     line-height: 48px;
+}
+
+.return{
+    display: inline-block; /* Use inline-block to make it inline like a button */
+    justify-content: center;
+    padding: 12px 24px;
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+    border: 2px solid #3498db;
+    border-radius: 25px;
+    color: #fff;
+    background-color: #3498db;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    text-decoration: none; /* Remove default underline for links */
+}
+
+.return:hover {
+    background-color: #266799; /* Darker color on hover */
+    transform: scale(1.05); /* Slight scaling effect on hover */
 }
